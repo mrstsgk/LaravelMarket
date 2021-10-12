@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>LaravelMarket</title>
 </head>
-<!-- Image and text -->
 <header id="common-haeder">
     <nav id="header-wrap">
         <div class="wrap-item">
