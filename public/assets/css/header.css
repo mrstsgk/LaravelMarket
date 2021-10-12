@@ -51,6 +51,10 @@
         margin: 0px 20px;
         cursor:pointer;
     }
+
+    .mobile-header {
+        display: none;
+    }
 }
 
 @media screen and (max-width:1300px){
