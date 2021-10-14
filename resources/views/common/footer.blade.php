@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{ asset('assets/images/logo.png') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <title>LaravelMarket</title>
-</head>
+<script src="{{ asset('/js/app.js') }}" defer></script>
 <footer id="common-footer">
     <div class="pc-footer">
         <nav id="footer-wrap">
             <div class="footer-copyright">
-                © 2021-2021 YKW Inc.
+                &copy; 2021-2021 YKW Inc.
             </div>
         </nav>
     </div>
@@ -44,3 +32,4 @@
     </div>
 </footer>
 
+</html>
