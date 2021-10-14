@@ -57,18 +57,35 @@ body {
         cursor:pointer;
     }
 
+    .cart {
+        position: relative;
+    }
+
+    .navCartIcon{
+        position: absolute;
+        text-align: center;
+        top: 0%;
+        right: 0%;
+        transform : translate(-50%,-50%);
+        width: 17px;
+        height: 17px;
+        font-size: 11px;
+        border-radius: 9px;
+        line-height: 17px;
+        background: #c7004c;/*商品数〇色の指定 */
+        color: #fff;/*商品数文字色の指定 */
+    }
+
     .mobile-header {
         display: none;
     }
+
     a {
         text-decoration: none;
     }
 }
 
 @media screen and (max-width:1300px){
-    #common-haeder {
-        display: none;
-    }
 
     .mobile-header {
         width: 100%;
@@ -83,5 +100,9 @@ body {
         margin: 0px 20px;
         box-shadow: 2px 2px 4px;
         background-color: white;
+    }
+
+    .pc-header {
+        display: none;
     }
 }
