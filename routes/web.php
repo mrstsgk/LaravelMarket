@@ -16,3 +16,5 @@ use App\Http\Controllers\EcController;
 
 // 商品一覧を表示する
 Route::get('/', [EcController::class, 'showList'])->name('showList');
+
+Route::post('/listSortHigh',[EcController::class, 'sortHigh'])->name('sortHigh');

@@ -15,4 +15,9 @@ class EcController extends Controller
     {
         return view('showList');
     }
+
+    public function sortHigh()
+    {
+        return view('showList');
+    }
 } 

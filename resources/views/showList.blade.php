@@ -19,21 +19,21 @@
         <div class="swiper-button-next"></div>
     </div>
 </section>
-<div class="list_sort">
-    <form action="#" method="post" id="sort_form" name="sort_form">
-        <select name="sort_select" onchange="changeSort();" id="sort_select">
-            <option value="high">値段が高い順</option>
-            <option value="low">値段が安い順</option>
-            <option value="fav">お気に入り</option>
-        </select>
-    </form>
-</div>
 <section class="main-wrapper">
+    <div class="list_sort">
+        <form action="" method="post" id="sort_form" name="sort_form">
+            @csrf
+            <select name="sort_select" onchange="changeSort();" id="sort_select">
+                <option value="{{ route('sortHigh') }}">値段が高い順</option>
+                <option value="low">値段が安い順</option>
+                <option value="fav">お気に入り</option>
+            </select>
+        </form>
+    </div>
 
 </section>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
-
 
 @include('common.footer')

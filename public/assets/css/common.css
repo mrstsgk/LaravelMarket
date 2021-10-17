@@ -2,14 +2,12 @@
 /* showList */
 @media screen and (min-width:1300px){
     .hero_slider {
-        width: 70%;
-        margin: 0 auto;
+        margin: 50px auto;
     }
 
     .swiper {
-    width: 100%;
+    width: 70%;
     height: 600px;
-    margin: 30px 0;
     }
 
     .swiper-slide {
@@ -50,6 +48,7 @@
                 -2px 0 0 black, 2px 0 0 black;
     }
 }
+
 #slide_1 > p {
     color: white;
 }
@@ -60,4 +59,14 @@
 
 #slide_3 > p {
     color:lightskyblue;
+}
+
+.main-wrapper {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.list_sort {
+    display: flex;
+    justify-content: flex-end;
 }
