@@ -12,14 +12,28 @@
             </div>
             <div class="swiper-slide" id="slide_3">
                 <img src="{{ asset('assets/images/cov.png') }}" width="100%" height="100%">
-                <p>収束に協力します</p>
+                <p>感染対策に協力します</p>
             </div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
 </section>
+<div class="list_sort">
+    <form action="#" method="post" id="sort_form" name="sort_form">
+        <select name="sort_select" onchange="changeSort();" id="sort_select">
+            <option value="high">値段が高い順</option>
+            <option value="low">値段が安い順</option>
+            <option value="fav">お気に入り</option>
+        </select>
+    </form>
+</div>
+<section class="main-wrapper">
+
+</section>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
+
+
 @include('common.footer')
