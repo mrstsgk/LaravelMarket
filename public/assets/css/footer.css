@@ -36,12 +36,6 @@
         padding: 10px 10px;
     }
 
-    .footer-wrap {
-        width: calc(100% + 20px);
-        margin-left: -20px;
-        margin-bottom: 0px;
-    }
-
     .footer-btn-wrap {
         display: flex;
         align-items: flex-start;
@@ -49,8 +43,19 @@
         padding: 10px 0px;
     }
 
-    .footer-wrap .footer-btn-wrap a {
-        width: 25%;
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+    }
+
+    li {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        line-height: 1;
     }
 
     .footer-wrap .footer-btn-wrap .home-btn {
@@ -80,7 +85,7 @@
 
     .navCartIcon{
         position: absolute;
-        top: 0%;
+        top: 30%;
         right: 0%;
         transform : translate(-50%,-50%);
         width: 17px;
