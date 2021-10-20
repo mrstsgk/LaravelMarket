@@ -20,6 +20,7 @@
     </div>
 </section>
 <section class="main-wrapper">
+    <hr class="borderline">
     <div class="list_sort">
         <form action="" method="post" id="sort_form" name="sort_form">
             @csrf
@@ -30,7 +31,14 @@
             </select>
         </form>
     </div>
-
+    <div class="item-list">
+        <div class="item">子要素</div>
+        <div class="item">子要素</div>
+        <div class="item">子要素</div>
+        <div class="item">子要素</div>
+        <div class="item">子要素</div>
+        <div class="item">子要素</div>
+    </div>
 </section>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
