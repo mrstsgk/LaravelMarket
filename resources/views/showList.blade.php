@@ -31,6 +31,7 @@
             </select>
         </form>
     </div>
+    <p>{{ $itemList }}</p>
     <div class="item-list">
         <div class="item">子要素</div>
         <div class="item">子要素</div>
@@ -40,7 +41,7 @@
         <div class="item">子要素</div>
     </div>
 </section>
-
+<?php phpinfo(); ?>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
 
