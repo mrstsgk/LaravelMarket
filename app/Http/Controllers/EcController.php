@@ -14,7 +14,6 @@ class EcController extends Controller
      */
     public function showList()
     {
-        Item::insert(['name' => 'テスト', 'description' => 'テスト', 'priceM' => 1000, 'priceL' => 1000, 'imagePath' => 'assets', 'deleted' => '0']);
         $items = Item::all();
         return view('showList', ['itemList' => $items]);
     }
