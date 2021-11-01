@@ -31,17 +31,20 @@
             </select>
         </form>
     </div>
-    <p>{{ $itemList }}</p>
     <div class="item-list">
-        <div class="item">子要素</div>
-        <div class="item">子要素</div>
-        <div class="item">子要素</div>
-        <div class="item">子要素</div>
-        <div class="item">子要素</div>
-        <div class="item">子要素</div>
+        @foreach ($itemList as $item)
+            <div class="item">
+                <a href="#">
+                    <div class="item-image">
+                        <img src="{{ $item->imagePath }}" alt="商品画像">
+                    </div>
+                    <p>{{ $item->name }}</p>
+                </a>
+
+            </div>
+        @endforeach
     </div>
 </section>
-<?php phpinfo(); ?>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
 
