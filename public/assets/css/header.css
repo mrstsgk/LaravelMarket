@@ -26,6 +26,10 @@ body {
         height: 50px;
     }
 
+    .fas {
+        background-color: rgb(242,95,112);
+    }
+
     .header-form {
         position: relative;
     }
@@ -53,6 +57,7 @@ body {
     }
 
     .list-item {
+        background-color: rgb(242,95,112);
         margin: 0px 20px;
         cursor:pointer;
     }

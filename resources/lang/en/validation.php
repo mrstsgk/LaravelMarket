@@ -152,6 +152,19 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "created_at" => "作成日時",
+        "updated_at" => "更新日時",
+        "name" => "名前",
+        "keywords" => "キーワード",
+        "description" => "説明",        
+        "sort" => "ソート",
+        "show" => "表示",                        
+        "title" => "タイトル",
+        "url" => "ホームページ",
+        "body" => "本文",    
+        "email" => "メールアドレス",   
+        "password" => "パスワード",                     
+    ],
 
 ];

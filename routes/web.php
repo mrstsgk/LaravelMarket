@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EcController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,10 @@ use App\Http\Controllers\EcController;
 Route::get('/', [EcController::class, 'showList'])->name('showList');
 
 Route::post('/listSortHigh',[EcController::class, 'sortHigh'])->name('sortHigh');
+
+// ログイン
+Route::get('/login', function () {
+    return view('login');
+});
+Route::POST('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout'])->middleware('login');
