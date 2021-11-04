@@ -35,16 +35,24 @@
         @foreach ($itemList as $item)
             <div class="item">
                 <a href="#">
-                    <div class="item-image">
-                        <img src="{{ $item->imagePath }}" alt="商品画像">
-                    </div>
+                    <img src="{{ $item->imagePath }}" alt="商品画像" class="item-image">
                     <p>{{ $item->name }}</p>
                 </a>
-
+                <div class="item-size">
+                    <p>M：{{ $item->priceM }}</p>
+                    <p>L：{{ $item->priceL }}</p>
+                </div>
             </div>
         @endforeach
     </div>
+    <!-- ページトップへ戻るボタン -->
+    <p class="pagetop" style="display: block;">
+        <a href="#">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </p>
 </section>
+
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
 
