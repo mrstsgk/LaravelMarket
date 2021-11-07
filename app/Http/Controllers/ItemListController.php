@@ -7,7 +7,7 @@ use App\Repositories\Models\Item;
 use App\Repositories\Models\User;
 use Illuminate\Support\Facades\Cookie;
 
-class EcController extends Controller
+class ItemListController extends Controller
 {
     /**
      * 商品一覧を表示する.
@@ -16,14 +16,14 @@ class EcController extends Controller
      */
     public function showList()
     {
-        $userId = Cookie::get('userId');
-        if (isset($userId)) {
-            $user = User::where('id', $userId)->get();
-        } else {
-            $user = 'ゲスト';
-        }
+        // $userId = Cookie::get('userId');
+        // if (isset($userId)) {
+        //     $user = User::where('id', $userId)->get();
+        // } else {
+        //     $user = 'ゲスト';
+        // }
         $items = Item::all();
-        return view('showList', ['itemList' => $items, 'userName' => $user[0]->name]);
+        return view('showList', ['itemList' => $items]);
     }
 
     public function sortHigh()

@@ -37,7 +37,7 @@
                 <div class="wrap-item">
                     <ul class="header-ul">
                         <li>
-                            <a href="/login" class="list-item"><i class="fas fa-user"></i>{{ $userName }}様</a>
+                            {{-- <a href="/login" class="list-item"><i class="fas fa-user"></i>{{ $userName }}様</a> --}}
                         </li>
                         <li class="cart">
                             <a href="#" class="list-item"><i class="fas fa-shopping-cart"></i>カート</a>
