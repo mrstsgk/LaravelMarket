@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <?php
-    session_start()
+session_start();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +38,8 @@
                 <div class="wrap-item">
                     <ul class="header-ul">
                         <li>
-                            {{-- <a href="/login" class="list-item"><i class="fas fa-user"></i>{{ $userName }}様</a> --}}
+                            <a href="/login" class="list-item"><i
+                                    class="fas fa-user"></i>{{ $userName }}様</a>
                         </li>
                         <li class="cart">
                             <a href="#" class="list-item"><i class="fas fa-shopping-cart"></i>カート</a>
