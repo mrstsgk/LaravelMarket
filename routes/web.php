@@ -18,7 +18,7 @@ use App\Http\Controllers\LoginController;
 // 商品一覧を表示する
 Route::get('/', [ItemListController::class, 'showList'])->name('showList');
 
-Route::post('/listSortHigh',[ItemListController::class, 'sortHigh'])->name('sortHigh');
+Route::post('/listSortHigh',[ItemListController::class, 'descendingOderPrice'])->name('descendingOderPrice');
 
 // ログイン
 Route::get('/login', function () {
