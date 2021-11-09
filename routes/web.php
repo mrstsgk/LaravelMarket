@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EcController;
+use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -16,9 +16,9 @@ use App\Http\Controllers\LoginController;
 */
 
 // 商品一覧を表示する
-Route::get('/', [EcController::class, 'showList'])->name('showList');
+Route::get('/', [ItemListController::class, 'showList'])->name('showList');
 
-Route::post('/listSortHigh',[EcController::class, 'sortHigh'])->name('sortHigh');
+Route::post('/listSortHigh',[ItemListController::class, 'descendingOderPrice'])->name('descendingOderPrice');
 
 // ログイン
 Route::get('/login', function () {
