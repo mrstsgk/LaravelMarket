@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MyPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,11 @@ Route::post('/listSortLow',[ItemListController::class, 'sortAscendingPrice'])->n
 Route::post('/listSortHigh',[ItemListController::class, 'sortDescendingPrice'])->name('sortDescendingPrice');
 
 // ログイン
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'show']);
 Route::POST('/login', [LoginController::class, 'login']);
+
+// ログアウト
 Route::get('/logout', [LoginController::class, 'logout'])->middleware('login');
+
+// マイページ
+Route::get('/mypage', [MyPageController::class, 'show']);
