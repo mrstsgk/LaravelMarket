@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\Models\User;
+use App\Services\UserService;
 use App\Services\ItemService;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;
@@ -19,9 +19,10 @@ class ItemListController extends Controller
      * @param  mixed $itemService
      * @return void
      */
-    public function __construct(ItemService $itemService)
+    public function __construct(ItemService $itemService, UserService $userService)
     {
         $this->itemService = $itemService;
+        $this->userService = $userService;
     }
     
     /**
@@ -35,12 +36,12 @@ class ItemListController extends Controller
         //　TODO:コメントで囲っている部分をUserRepositoryクラスを作成して移してください
         $userId = Cookie::get('userId');
         if (isset($userId)) {
-            $user = User::where('id', $userId)->get();
+            $userName = $this->userService->getUserName($userId);
         } else {
-            $user = 'ゲスト';
+            $userName = 'ゲスト';
         }
         //ここまで
-        return view('showList', ['itemList' => $items, 'userName' => $user]);
+        return view('showList', ['itemList' => $items, 'userName' => $userName]);
     }
 
     public function descendingOderPrice()
