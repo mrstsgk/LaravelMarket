@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Repositories\Models\Item;
+use Illuminate\Database\Eloquent\Collection;
 use League\CommonMark\Block\Element\ListData;
 
 class ItemRepository
@@ -11,8 +12,9 @@ class ItemRepository
      *
      * @return $item 商品データ
      */
-    public function getItemList(){
-        $items = Item::all();
+    public function getItemList():Collection
+    {
+        $items = Item::select('id', 'name', 'priceM', 'priceL', 'imagePath')->orderBy('priceM', 'desc')->get();
         return $items;
     }
 }

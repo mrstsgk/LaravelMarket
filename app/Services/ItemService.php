@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Repositories\ItemRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class ItemService
 {    
@@ -24,7 +25,8 @@ class ItemService
      *
      * @return $items 商品データ
      */
-    public function getItemList(){
+    public function getItemList():Collection
+    {
         $items = $this->itemRepository->getItemList();
         return $items;
     }

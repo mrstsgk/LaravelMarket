@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Models\User;
 use App\Services\ItemService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;
 
@@ -29,7 +30,7 @@ class ItemListController extends Controller
      *
      * @return view
      */
-    public function showList()
+    public function showList():View
     {
         $items = $this->itemService->getItemList();
         //　TODO:コメントで囲っている部分をUserRepositoryクラスを作成して移してください
@@ -43,8 +44,9 @@ class ItemListController extends Controller
         return view('showList', ['itemList' => $items, 'userName' => $user]);
     }
 
-    public function descendingOderPrice()
+    public function sortDescendingPrice():View
     {
-        return view('showList');
+        $items = $this->itemService->getItemList();
+        return view('showList', ['itemList' => $items]);
     }
 } 
