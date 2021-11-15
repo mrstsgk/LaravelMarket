@@ -14,7 +14,29 @@ class ItemRepository
      */
     public function getItemList():Collection
     {
-        $items = Item::select('id', 'name', 'priceM', 'priceL', 'imagePath')->orderBy('priceM', 'desc')->get();
-        return $items;
+        $itemList = Item::select('id', 'name', 'priceM', 'priceL', 'imagePath')->orderBy('priceM', 'asc')->get();
+        return $itemList;
+    }
+    
+    /**
+     * 商品データを昇順で取得する.
+     *
+     * @return Collection
+     */
+    public function getItemListAsc():Collection
+    {
+        $itemList = Item::select('id', 'name', 'priceM', 'priceL', 'imagePath')->orderBy('priceM', 'asc')->get();
+        return $itemList;
+    }
+        
+    /**
+     * 商品データを降順で取得する.
+     *
+     * @return Collection
+     */
+    public function getItemListDesc():Collection
+    {
+        $itemList = Item::select('id', 'name', 'priceM', 'priceL', 'imagePath')->orderBy('priceM', 'DESC')->get();
+        return $itemList;
     }
 }

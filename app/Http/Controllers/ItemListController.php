@@ -33,21 +33,31 @@ class ItemListController extends Controller
      */
     public function showList():View
     {
-        $items = $this->itemService->getItemList();
-        //　TODO:コメントで囲っている部分をUserRepositoryクラスを作成して移してください
+        $itemList = $this->itemService->getItemList();
         $userId = Cookie::get('userId');
         if (isset($userId)) {
             $userName = $this->userService->getUserName($userId);
         } else {
             $userName = 'ゲスト';
         }
-        //ここまで
-        return view('showList', ['itemList' => $items, 'userName' => $userName]);
+        return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
-
-    public function sortDescendingPrice():View
+    
+    /**
+     * 商品一覧を表示する（昇順）.
+     *
+     * @param  mixed $sort ソート条件
+     * @return View
+     */
+    public function sortItemList(String $sort):View
     {
-        $items = $this->itemService->getItemList();
-        return view('showList', ['itemList' => $items]);
+        $itemList = $this->itemService->sortItemList($sort);
+        $userId = Cookie::get('userId');
+        if (isset($userId)) {
+            $userName = $this->userService->getUserName($userId);
+        } else {
+            $userName = 'ゲスト';
+        }
+        return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
 } 

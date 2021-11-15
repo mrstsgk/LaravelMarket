@@ -20,9 +20,9 @@ use App\Http\Controllers\MyPageController;
 Route::get('/', [ItemListController::class, 'showList'])->name('showList');
 
 // 並べ替え機能
-Route::post('/listSortHigh',[ItemListController::class, 'sortDescendingPrice'])->name('sortDescendingPrice');
-Route::post('/listSortLow',[ItemListController::class, 'sortAscendingPrice'])->name('sortAscendingPrice');
-Route::post('/listSortHigh',[ItemListController::class, 'sortDescendingPrice'])->name('sortDescendingPrice');
+Route::post('/sortItemList/{sort?}',[ItemListController::class, 'sortItemList'])->name('sortItemList');
+// Route::get('/itemSortHigh',[ItemListController::class, 'sortDescendingPrice'])->name('sortDescendingPrice');
+// Route::get('/listSortHigh',[ItemListController::class, ''])->name('');
 
 // ログイン
 Route::get('/login', [LoginController::class, 'show']);
