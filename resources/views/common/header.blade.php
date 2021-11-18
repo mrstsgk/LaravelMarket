@@ -25,7 +25,7 @@ session_start();
         <div class="pc-header">
             <nav id="header-wrap">
                 <div class="wrap-item">
-                    <a href="#">
+                    <a href="{{ route('showList') }}">
                         <img src=" {{ asset('assets/images/logo.png') }}" class="header-logo">
                     </a>
                 </div>

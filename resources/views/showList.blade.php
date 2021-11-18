@@ -25,9 +25,15 @@
         <form action="" method="post" id="sort_form" name="sort_form">
             @csrf
             <select name="sort_select" onchange="changeSort();" id="sort_select">
-                <option value="{{ route('descendingOderPrice') }}">値段が高い順</option>
-                <option value="low">値段が安い順</option>
-                <option value="fav">お気に入り</option>
+                <option value="{{ route('sortItemList', ['sort' => 'asc']) }}" @if (Request::is('sortItemList/asc')) selected @endif>
+                    値段が安い順
+                </option>
+                <option value="{{ route('sortItemList', ['sort' => 'desc']) }}" @if (Request::is('sortItemList/desc')) selected @endif>
+                    値段が高い順
+                </option>
+                <option value="fav" @if (Request::is('sortItemList/fav')) selected @endif>
+                    お気に入り
+                </option>
             </select>
         </form>
     </div>
@@ -45,12 +51,6 @@
             </div>
         @endforeach
     </div>
-    <!-- ページトップへ戻るボタン -->
-    <p class="pagetop" style="display: block;">
-        <a href="#">
-            <i class="fas fa-chevron-up"></i>
-        </a>
-    </p>
 </section>
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

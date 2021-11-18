@@ -1,0 +1,21 @@
+# DBに流したSQLをここに記述してください.
+
+# itemsTable
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('アロハシャツ黒', '夏のマストアイテム、アロハシャツに黒色が登場！！', 1200, 1500, '../assets/images/alohashirt_black.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('アロハシャツ赤', 'アロハシャツ定番の赤が今年もやってきた！', 1200, 1500, '../assets/images/alohashirt_red.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('アロハシャツ黄', '黄色で明るさを演出！', 1200, 1500, '../assets/images/alohashirt_yellow.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('ボタンシャツ黒', '使い勝手最高！！', 1000, 2000, '../assets/images/black.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('ジャケット', '冬でも温かいジャケットが新登場！！', 6900, 8300, '../assets/images/jacket.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('子供服', 'かわいいライオンが入ったキッズ服', 600, 800, '../assets/images/kodomofuku_boy.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('ワクチン', '重症化を抑えます', 10000, 15000, '../assets/images/covid19.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('パーカー赤', '赤パーカーがコーディネートの幅を広げる', 5000, 7900, '../assets/images/parka_red.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('パーカー青', '落ち着きのある青パーカー', 5000, 7900, '../assets/images/parka_blue.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('パーカーピンク', 'ペアルックに最適！！', 5000, 7900, '../assets/images/parka_pink.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('防護服', 'これでお外も安全！！', 38000, 50000, '../assets/images/radioactivity_bougofuku.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('ボタンシャツ赤', '赤のシャツです', 1000, 2000, '../assets/images/red.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('ボタンシャツ水色', '水色のボタンシャツです。', 1000, 2000, '../assets/images/skyblue.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('安全太郎', '皆さんの安全を守ります。', 300000, 500000, '../assets/images/stand_sagyouin_glove_man_helmet.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('スタジアムジャケット', '毎年人気のLaravelスタジャン入荷しました！', 5200, 8000, '../assets/images/sutajan.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('Tシャツ黒', '安定の黒Tシャツ', 700, 900, '../assets/images/tshirt_black.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('Tシャツ青', '安定の青Tシャツ', 700, 900, '../assets/images/tshirt_blue.png',0);
+INSERT INTO items(`name`, `description`, `priceM`, `priceL`, `imagePath`, `deleted`) VALUES ('Tシャツ赤', '安定の赤Tシャツ', 700, 900, '../assets/images/tshirt_red.png',0);
