@@ -53,6 +53,10 @@ session_start();
             </nav>
         </div>
         <div class="mobile-header">
+            <div class="loginUser">
+                <a href="/login" class="list-item"><i
+                    class="fas fa-user"></i>{{ $userName }}様</a>
+            </div>
             <form action="#" method="post" class="mobile-form">
                 <div class="input-group">
                     <input type="search" class="form-control" placeholder="キーワードを入力してください">
