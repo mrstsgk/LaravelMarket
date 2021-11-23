@@ -28,6 +28,11 @@
                 <input type="submit" value="ログインする" class="btn btn-primary">
             </div>
         </form>
+        <div id="signup_btn">
+            <a href="/signup" class="btn btn-primary">
+                新規登録はこちら
+            </a>
+        </div>
     </div>
 </section>
 

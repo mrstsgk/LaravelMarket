@@ -55,4 +55,9 @@ class UserService
 
         return array(false, 0);
     }
+
+    public function insertUser($name, $email, $password, $zipcode, $address, $telephone){
+        $userId = $this->userRepository->insertUser($name, $email, $password, $zipcode, $address, $telephone);
+        return $userId;        
+    }
 }

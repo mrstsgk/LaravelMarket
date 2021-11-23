@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 use App\Repositories\Models\User;
+use Illuminate\Support\Facades\Hash;
 use League\CommonMark\Block\Element\ListData;
 
 class UserRepository
@@ -25,6 +26,23 @@ class UserRepository
         $user = User::where('id', $userId)->get();
         $userName = $user[0]->name;
         return $userName;
+    }
+
+    public function insertUser($name, $email, $password, $zipcode, $address, $telephone){
+        // Userのmodelクラスのインスタンスを生成
+        $user = new User();
+        // データベースに値をinsert
+        $model = $user->create([
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make($password),
+            'zipcode' => $zipcode,
+            'address' => $address,
+            'telephone' => $telephone,
+        ]);
+
+        // idを返す
+        return dd($model->id); // "testname"
     }
     
 }

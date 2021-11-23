@@ -35,7 +35,7 @@ class MyPageController extends Controller
 
             return view('mypage', ['userName' => $userName, 'coupons' => $coupons]);
         } else {
-            return view('login', ['userName' => 'ゲスト']);
+            return redirect("/login");
         }
 
         
