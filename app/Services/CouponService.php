@@ -37,7 +37,7 @@ class CouponService
 
     public function getCoupon($userID){
 
-        // 入力値をCouponテーブルで検索
+        // ユーザーが所持するクーポンをCouponテーブルで検索
         $coupon= $this->couponRepository->getCoupon($userID);
         
         // なし
