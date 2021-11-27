@@ -1,10 +1,6 @@
 @include('common.header')
 
 <div class="sginup">
-    {{-- エラーメッセージ --}}
-    @if (isset($validators))
-        {{ $validators->has('name') }}
-    @endif
     <div class="title">
         新規会員登録
     </div>
@@ -12,10 +8,16 @@
         {{-- フォーム --}}
         <form action="{{ url('signup') }}" method="post">
             @csrf
+            @if ($errors->has('name'))
+                <p>{{$errors->first('name')}}</p>
+            @endif
             <div class="form-group">
                 <label for="user_name">名前</label>
                 <input type="text" class="form-control" id="user_name" name="name">
             </div>
+            @if ($errors->has('email'))
+                <p>{{$errors->first('email')}}</p>
+            @endif
             <div class="form-group">
                 <label for="user_email">メールアドレス</label>
                 <input type="text" class="form-control" id="user_email" name="email">

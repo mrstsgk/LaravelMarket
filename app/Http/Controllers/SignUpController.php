@@ -58,10 +58,10 @@ class SignUpController extends Controller
         // }
 
         $validator = $this->userValidator->createValidation($request);
-        $validators = $validator->validate();
-
         if ($validator->fails()) {
-            return redirect('/signup')->withInput()->withErrors($validator);
+            return redirect('/signup')
+                ->withErrors($validator)
+                ->withInput();
         }
 
         // emailチェック

@@ -14,13 +14,13 @@ class UserValidator extends Validator
             'name' => [
                 'required',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'email' => [
                 'required',
                 'email',
                 'max:255',
-                'unique:users'
+                'unique:users',
             ],
         ], [
             'name.required' => '名前を入力してください。',
@@ -30,9 +30,6 @@ class UserValidator extends Validator
             'email.email' => 'メール形式で入力してください',
             'email.max' => '255文字以内で入力してください。',
             'email.unique' => '入力したメールアドレスは既に使われています。',
-        ])->after(function ($validator) use ($params) {
-            //...カスタムバリデーション
-            $validator->errors()->add('name', 'エラー！');
-        });
+        ]);
     }
 }
