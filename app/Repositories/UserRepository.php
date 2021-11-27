@@ -22,17 +22,18 @@ class UserRepository
         return $user;
     }
 
-    public function getUserName($userId){
-        $user = User::where('id', $userId)->get();
+    public function getUserName($user_id){
+        $user = User::where('user_id', $user_id)->get();
         $userName = $user[0]->name;
         return $userName;
     }
 
-    public function insertUser($name, $email, $password, $zipcode, $address, $telephone){
+    public function insertUser($user_id, $name, $email, $password, $zipcode, $address, $telephone){
         // Userのmodelクラスのインスタンスを生成
         $user = new User();
         // データベースに値をinsert
         $model = $user->create([
+            'user_id' => $user_id,
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
@@ -42,7 +43,7 @@ class UserRepository
         ]);
 
         // idを返す
-        return dd($model->id); // "testname"
+        return $model->user_id; // "testname"
     }
     
 }

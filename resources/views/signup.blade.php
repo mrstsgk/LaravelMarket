@@ -1,6 +1,10 @@
 @include('common.header')
 
 <div class="sginup">
+    {{-- エラーメッセージ --}}
+    @if (isset($validators))
+        {{ $validators->has('name') }}
+    @endif
     <div class="title">
         新規会員登録
     </div>

@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Repositories\Models\User;
+use App\Http\Validator\UserValidator;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
+use phpseclib3\Crypt\Random;
 
 class SignUpController extends Controller
 {
     /** @Autowired */
     private $userService;
+    private $userValidator;
     
     /**
      * Serviceクラスの依存性を注入する.
@@ -20,9 +24,10 @@ class SignUpController extends Controller
      * @param  mixed $userService
      * @return void
      */
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, UserValidator $userValidator)
     {
         $this->userService = $userService;
+        $this->userValidator = $userValidator;
     }
 
     /**
@@ -34,7 +39,7 @@ class SignUpController extends Controller
     {
         $userId = Cookie::get('userId');
         if (isset($userId)) {
-            return redirect("/mypage");
+            return redirect('/mypage');
         } else {
             return view('signup', ['userName' => 'ゲスト']);
         }
@@ -47,17 +52,37 @@ class SignUpController extends Controller
      */
     public function signup(Request $request)
     {
-        // パスワードチェック
-        if ($request->password !== $request->reenter_password) {
-            return view('signup', ['userName' => 'ゲスト']);
+        // // パスワードチェック
+        // if ($request->password !== $request->reenter_password) {
+        //     return view('signup', ['userName' => 'ゲスト']);
+        // }
+
+        $validator = $this->userValidator->createValidation($request);
+        $validators = $validator->validate();
+
+        if ($validator->fails()) {
+            return redirect('/signup')->withInput()->withErrors($validator);
         }
 
         // emailチェック
         // email検索してあったらはじく処理
 
-        // 登録
-        $userId = $this->userService->insertUser($request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
+        //user_idの生成
+        while (true) {
+            $user_id = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+            try {
+                // 登録
+                $userId = $this->userService->insertUser($user_id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
+                break;
+            } catch (Exception $e) {
+                continue;
+            }
+        }
 
+        // cookie設定
+        Cookie::queue('userId', $userId, 60);
+
+        // return redirect('/mypage');
     } 
 
 }
