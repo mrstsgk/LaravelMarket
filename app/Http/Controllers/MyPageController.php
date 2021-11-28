@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Services\CouponService;
 use Illuminate\Support\Facades\Cookie;
 
 class MyPageController extends Controller
@@ -15,9 +16,10 @@ class MyPageController extends Controller
      * @param  mixed $userService
      * @return void
      */
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, CouponService $couponService)
     {
         $this->userService = $userService;
+        $this->couponService = $couponService;
     }
 
     /**
@@ -29,7 +31,9 @@ class MyPageController extends Controller
         $userId = Cookie::get('userId');
         if (isset($userId)) {
             $userName = $this->userService->getUserName($userId);
-            return view('mypage', ['userName' => $userName]);
+            $coupons = $this->couponService->getCoupon($userId);
+
+            return view('mypage', ['userName' => $userName, 'coupons' => $coupons]);
         } else {
             return view('login', ['userName' => 'ゲスト']);
         }

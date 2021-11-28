@@ -1,0 +1,97 @@
+@charset "utf-8" ;
+
+
+@media screen and (min-width:1300px){
+
+    .mypage {
+        margin: 5px;
+    }
+
+    .title {
+        font-size: larger;
+        font-weight: 800;
+    }
+
+    .title > img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .member-info {
+        width: 400px;
+        height: 200px;
+        border-radius: 10px;
+        font-size: 100%;
+        margin: 20px;
+    }
+
+    .member-name {
+        background-color: darkgray;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .member-name > p {
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    .member-point {
+        height: 150px;
+        padding: 5px;
+        margin: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: rgb(200, 200, 200);
+    }
+
+    .point-tag, .point, .point-limit{
+        padding: 5px;
+        margin: 0;
+    }
+
+    .point-tag {
+        font-size: 15px;
+    }
+
+    .point {
+        font-size: 30px;
+    }
+
+    hr {
+        border-top: 3px double #8c8b8b;
+    }
+
+    .coupons {
+        margin: 20px;
+    }
+
+    .coupon-btn {
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        background-color: gold;
+        border-radius: 10px;
+    }
+
+    .coupon-btn > p {
+        font-size: 15px;
+        margin: 0 auto;
+    }
+
+    .coupon-image {
+        padding: 10px;
+        height: 90px;
+        width: 90px;
+    }
+
+    .coupon > p {
+        margin: 5px;
+    }
+
+}
+
+@media screen and (max-width:1300px){
+
+
+}
