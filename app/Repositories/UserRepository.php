@@ -17,14 +17,14 @@ class UserRepository
         return $users;
     }
 
-    public function getUser($email){
-        $user = User::where('email', $email)->get();
+    public function getUser($user_id){
+        $user = User::where('user_id', $user_id)->get();
         return $user;
     }
 
     public function getUserName($user_id){
         $user = User::where('user_id', $user_id)->get();
-        $userName = $user[0]->name;
+        $userName = $user[0]->name;      
         return $userName;
     }
 
