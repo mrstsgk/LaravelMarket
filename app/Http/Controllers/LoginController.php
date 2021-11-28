@@ -55,9 +55,10 @@ class LoginController extends Controller
             Cookie::queue('userId', $loginFlg[1], 60);
             return redirect(url('/'));
         } else {
-            return view('login', ['login_error' => '1']);
+            return view('login', ['userName' => 'ゲスト','login_error' => '1']);
         }
 
+        return view('login', ['userName' => 'ゲスト','login_error' => '1']);
     } 
     
     public function logout(Request $request)
