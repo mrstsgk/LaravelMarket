@@ -30,6 +30,11 @@ class UserService
         return $users;
     }
 
+    public function getUser($user_id){
+        $userName = $this->userRepository->getUser($user_id);
+        return $userName;
+    }
+
     public function getUserName($user_id){
         $userName = $this->userRepository->getUserName($user_id);
         return $userName;

@@ -57,32 +57,31 @@ class SignUpController extends Controller
         //     return view('signup', ['userName' => 'ゲスト']);
         // }
 
+        // validationチェック
         $validator = $this->userValidator->createValidation($request);
         if ($validator->fails()) {
             return redirect('/signup')
-                ->withErrors($validator)
-                ->withInput();
+                    ->withErrors($validator)
+                    ->withInput();
         }
-
-        // emailチェック
-        // email検索してあったらはじく処理
 
         //user_idの生成
         while (true) {
             $user_id = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
-            try {
-                // 登録
-                $userId = $this->userService->insertUser($user_id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
+            $user = $this->userService->getUser($user_id);
+            // 使用されていないuser_idならbreak
+            if (count($user) <= 0) {
                 break;
-            } catch (Exception $e) {
-                continue;
             }
         }
+
+        // 登録
+        $userId = $this->userService->insertUser($user_id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
 
         // cookie設定
         Cookie::queue('userId', $userId, 60);
 
-        // return redirect('/mypage');
+        return redirect('/mypage');
     } 
 
 }

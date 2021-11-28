@@ -153,7 +153,7 @@
 }
 
 .blockIn {
-  opacity: 1;
+    opacity: 1;
 }
 
 .item-image:hover {
@@ -183,6 +183,12 @@
     padding: 20px 0;
 }
 
+#signup_page {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
 #login_page > h1 {
     padding-top: 30px;
 }
@@ -197,4 +203,9 @@
 
 #signup_btn {
     padding-top: 20px;
+}
+
+#validate-error {
+    margin-bottom: 0;
+    color: red;
 }
