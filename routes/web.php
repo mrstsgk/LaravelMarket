@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyPageController;
+use App\Http\Controllers\SignUpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->middleware('login');
 
 // マイページ
 Route::get('/mypage', [MyPageController::class, 'show']);
+
+// 新規登録
+Route::get('/signup', [SignUpController::class, 'show']);
+Route::POST('/signup', [SignUpController::class, 'signUp']);

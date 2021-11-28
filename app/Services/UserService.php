@@ -30,8 +30,8 @@ class UserService
         return $users;
     }
 
-    public function getUserName($userId){
-        $userName = $this->userRepository->getUserName($userId);
+    public function getUserName($user_id){
+        $userName = $this->userRepository->getUserName($user_id);
         return $userName;
     }
 
@@ -48,11 +48,16 @@ class UserService
         // 一致
         if (Hash::check($password, $user[0]->password)) {
 
-            return array(true, $user[0]->id);
+            return array(true, $user[0]->user_id);
         } else {
             return array(false, 0);
         }
 
         return array(false, 0);
+    }
+
+    public function insertUser($user_id, $name, $email, $password, $zipcode, $address, $telephone){
+        $userId = $this->userRepository->insertUser($user_id, $name, $email, $password, $zipcode, $address, $telephone);
+        return $userId;        
     }
 }

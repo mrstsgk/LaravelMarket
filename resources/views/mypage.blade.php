@@ -30,18 +30,21 @@
                 <!-- 折り畳まれ部分 -->
                 <div id="coupon-open" style="display:none;clear:both;">
                     
-                    @foreach ($coupons as $coupon)
-                        <div class="coupon">
-                            <p>{{ $coupon->coupon_name }}</p>
-                            @if ($coupon->type == "1")
-                                <p>{{ $coupon->discount }}円引き</p>
-                            @elseif ($coupon->type == "2")
-                                <p>{{ $coupon->discount }}％引き</p>
-                            @endif
-                            <p>{{ $coupon->deadline }}まで</p>
-                        </div>
-                    @endforeach
-                
+                    @if ($coupons == null)
+                        <p>所持クーポンが<br>ありません</p>
+                    @else
+                        @foreach ($coupons as $coupon)
+                            <div class="coupon">
+                                <p>{{ $coupon->coupon_name }}</p>
+                                @if ($coupon->type == "1")
+                                    <p>{{ $coupon->discount }}円引き</p>
+                                @elseif ($coupon->type == "2")
+                                    <p>{{ $coupon->discount }}％引き</p>
+                                @endif
+                                <p>{{ $coupon->deadline }}まで</p>
+                            </div>
+                        @endforeach
+                    @endif                
                 </div>
                 <!--// 折り畳まれ部分 -->
         </div>
