@@ -48,6 +48,26 @@
                     <p>M：{{ $item->priceM }}</p>
                     <p>L：{{ $item->priceL }}</p>
                 </div>
+                @if (Auth::check())
+                    @if ($likes)
+                        <form action="{{action('LikesController@destroy',$item->id)}}" method="POST" class="mb-4" >
+                        <input type="hidden" name="item_id" value="{{$item->id}}">
+                        @csrf
+                        @method('DELETE')
+                            <button type="submit">
+                                ブックマーク解除
+                            </button>
+                        </form>
+                    @else
+                        <form action="{{action('LikesController@store')}}" method="POST" class="mb-4" >
+                            @csrf
+                            <input type="hidden" name="item_id" value="{{$item->id}}">
+                            <button type="submit">
+                                ブックマーク
+                            </button>
+                        </form>
+                    @endif
+                @endif
             </div>
         @endforeach
     </div>

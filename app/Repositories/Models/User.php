@@ -4,6 +4,7 @@ namespace App\Repositories\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -14,13 +15,17 @@ class User extends Authenticatable
     //テーブル名
     protected $table = 'users';
 
+    protected $primaryKey = 'id';
+    public $incrementing = false; 
+    protected $keyType = 'string';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'user_id',
+        'id',
         'name',
         'email',
         'password',
@@ -30,6 +35,11 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
     ];
+
+    public function likes()
+    {
+        return $this->hasMany('App\Repositories\Models\Like');
+    }
 
     protected $guarded = ['id'];
 }

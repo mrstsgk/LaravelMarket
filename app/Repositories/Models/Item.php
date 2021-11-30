@@ -26,5 +26,10 @@ class Item extends Model
         'deleted',
     ];
 
+    public function likes()
+    {
+        return $this->hasMany('App\Repositories\Models\Like');
+    }
+
     protected $guarded = ['id'];
 }

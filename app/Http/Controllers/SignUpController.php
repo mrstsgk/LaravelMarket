@@ -37,8 +37,8 @@ class SignUpController extends Controller
      */
     public function show() 
     {
-        $userId = Cookie::get('userId');
-        if (isset($userId)) {
+        $id = Cookie::get('userId');
+        if (isset($id)) {
             return redirect('/mypage');
         } else {
             return view('signup', ['userName' => 'ゲスト']);
@@ -52,11 +52,6 @@ class SignUpController extends Controller
      */
     public function signup(Request $request)
     {
-        // // パスワードチェック
-        // if ($request->password !== $request->reenter_password) {
-        //     return view('signup', ['userName' => 'ゲスト']);
-        // }
-
         // validationチェック
         $validator = $this->userValidator->createValidation($request);
         if ($validator->fails()) {
@@ -67,8 +62,8 @@ class SignUpController extends Controller
 
         //user_idの生成
         while (true) {
-            $user_id = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
-            $user = $this->userService->getUser($user_id);
+            $id = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
+            $user = $this->userService->getUserbyId($id);
             // 使用されていないuser_idならbreak
             if (count($user) <= 0) {
                 break;
@@ -76,10 +71,10 @@ class SignUpController extends Controller
         }
 
         // 登録
-        $userId = $this->userService->insertUser($user_id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
+        $this->userService->insertUser($id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
 
         // cookie設定
-        Cookie::queue('userId', $userId, 60);
+        Cookie::queue('userId', $id, 60);
 
         return redirect('/mypage');
     } 
