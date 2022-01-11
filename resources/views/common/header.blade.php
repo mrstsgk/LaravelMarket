@@ -30,9 +30,10 @@ session_start();
                     </a>
                 </div>
                 <div class="wrap-item">
-                    <form action="#" method="post" class="header-form">
-                        <input type="search" name="search" class="header-search-box" placeholder="キーワードを入力してください">
-                        <button type="submit" class="header-serch-btn">検索</button>
+                    <form action="{{ route('searchItemList') }}" method="GET" class="header-form">
+                        <input type="search" name="keyword" class="header-search-box" placeholder="キーワードを入力してください"
+                            value="@if (isset($keyword)) {{ $keyword }} @endif"">
+                        <button type=" submit" class="header-serch-btn">検索</button>
                     </form>
                 </div>
                 <div class="wrap-item">
@@ -54,8 +55,7 @@ session_start();
         </div>
         <div class="mobile-header">
             <div class="loginUser">
-                <a href="/login" class="list-item"><i
-                    class="fas fa-user"></i>{{ $userName }}様</a>
+                <a href="/login" class="list-item"><i class="fas fa-user"></i>{{ $userName }}様</a>
             </div>
             <form action="#" method="post" class="mobile-form">
                 <div class="input-group">
