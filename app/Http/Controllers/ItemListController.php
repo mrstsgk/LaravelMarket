@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Services\ItemService;
+use Attribute;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;
@@ -40,11 +41,9 @@ class ItemListController extends Controller
         } else {
             $userName = 'ゲスト';
         }
-        $php_json = json_encode($itemList, JSON_UNESCAPED_UNICODE);
-        ddd($php_json);
-        
         return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
+
     
     /**
      * 商品一覧を表示する（昇順）.
@@ -64,6 +63,12 @@ class ItemListController extends Controller
         return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
 
+    /**
+     * 商品検索機能.
+     *
+     * @param  mixed $request String
+     * @return View
+     */
     public function searchItemList(Request $request):View
     {
         $keyword = $request->input('keyword');

@@ -22,6 +22,10 @@ $(function() {
 });
 
 // オートコンプリート
-
+let requestURL = 'http://localhost:8888/';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+var jsonObject = JSON.parse(itemNameJson);
+console.log(jsonObject);
 
 
