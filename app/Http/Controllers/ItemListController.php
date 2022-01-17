@@ -40,6 +40,9 @@ class ItemListController extends Controller
         } else {
             $userName = 'ゲスト';
         }
+        $php_json = json_encode($itemList, JSON_UNESCAPED_UNICODE);
+        ddd($php_json);
+        
         return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
     
@@ -60,4 +63,17 @@ class ItemListController extends Controller
         }
         return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
     }
-} 
+
+    public function searchItemList(Request $request):View
+    {
+        $keyword = $request->input('keyword');
+        $itemList = $this->itemService->searchItemList($keyword);
+        $userId = Cookie::get('userId');
+        if (isset($userId)) {
+            $userName = $this->userService->getUserName($userId);
+        } else {
+            $userName = 'ゲスト';
+        }
+        return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
+    }
+}

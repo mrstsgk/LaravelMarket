@@ -20,10 +20,11 @@ use App\Http\Controllers\SignUpController;
 // 商品一覧を表示する
 Route::get('/', [ItemListController::class, 'showList'])->name('showList');
 
+// 検索
+Route::get('/searchItemList', [ItemListController::class, 'searchItemList'])->name('searchItemList');
+
 // 並べ替え機能
 Route::post('/sortItemList/{sort?}',[ItemListController::class, 'sortItemList'])->name('sortItemList');
-// Route::get('/itemSortHigh',[ItemListController::class, 'sortDescendingPrice'])->name('sortDescendingPrice');
-// Route::get('/listSortHigh',[ItemListController::class, ''])->name('');
 
 // ログイン
 Route::get('/login', [LoginController::class, 'show']);
