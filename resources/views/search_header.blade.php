@@ -20,7 +20,7 @@ session_start();
     <title>LaravelMarket</title>
 </head>
 
-<body>
+<body onload="autocompleteFunc();">
     <header id="common-haeder">
         <div class="pc-header">
             <nav id="header-wrap">
@@ -28,6 +28,24 @@ session_start();
                     <a href="{{ route('showList') }}">
                         <img src=" {{ asset('assets/images/logo.png') }}" class="header-logo" />
                     </a>
+                </div>
+                <div class="wrap-item">
+                <form action="{{ route('searchItemList') }}" method="GET" class="header-form">
+                    <input type="search" name="keyword" autocomplete="on" @if (Request::is('/')) list="item-name" @else list="jsAutocompleteData" @endif
+                    class="header-search-box" placeholder="キーワードを入力してください" value="@if (isset($keyword)) {{ $keyword }} @endif"">
+                        @if (Request::is('/'))
+                            <datalist id="item-name">
+                                @foreach($itemList as $item)
+                                    <option value="{{ $item->name }}"></option>
+                                @endforeach
+                            </datalist>
+                        @else
+                            <datalist id="jsAutocompleteData"></datalist>
+                        @endif
+                        <button type="submit" class="header-serch-btn">
+                            検索
+                        </button>
+                    </form>
                 </div>
                 <div class="wrap-item">
                     <ul class="header-ul">
@@ -49,6 +67,14 @@ session_start();
             <div class="loginUser">
                 <a href="/login" class="list-item"><i class="fas fa-user"></i>{{ $userName }}様</a>
             </div>
+            <form action="#" method="post" class="mobile-form">
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="キーワードを入力してください" />
+                    <button class="btn btn-outline-secondary" type="button">
+                        検索
+                    </button>
+                </div>
+            </form>
         </div>
     </header>
 </body>

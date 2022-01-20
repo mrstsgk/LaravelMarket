@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Repositories\ItemRepository;
 use Illuminate\Database\Eloquent\Collection;
+use PHPUnit\Util\Json;
 
 class ItemService
 {    
@@ -30,7 +31,7 @@ class ItemService
         $itemList = $this->itemRepository->getItemList();
         return $itemList;
     }
-    
+
     /**
      * コントローラに商品データを条件に沿って返す.
      *
