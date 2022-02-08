@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Repositories\ItemRepository;
 use Illuminate\Database\Eloquent\Collection;
+use PHPUnit\Util\Json;
 
 class ItemService
 {    
@@ -30,8 +31,7 @@ class ItemService
         $itemList = $this->itemRepository->getItemList();
         return $itemList;
     }
-    
-    
+
     /**
      * コントローラに商品データを条件に沿って返す.
      *
@@ -47,6 +47,23 @@ class ItemService
         }else if($sort === 'fav'){
             $itemList = $this->itemRepository->getItemListFav();
         }
+        return $itemList;
+    }
+    
+    /**
+     * 商品を検索する.
+     * nullなら全件検索、nullでなければあいまい検索
+     *
+     * @param  mixed $keyword 検索ワード
+     * @return Collection
+     */
+    public function searchItemList(string|null $keyword):Collection
+    {
+        if ($keyword === null) {
+            $itemList = $this->itemRepository->getItemList();
+            return $itemList;
+        }
+        $itemList = $this->itemRepository->searchItemList($keyword);
         return $itemList;
     }
 }

@@ -1,4 +1,4 @@
-@include('common.header')
+@include('search_header')
 <section class="hero_slider">
     <div class="swiper">
         <div class="swiper-wrapper">
@@ -75,5 +75,6 @@
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="{{ asset('assets/js/slider.js') }}"></script>
+
 
 @include('common.footer')
