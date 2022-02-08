@@ -14,6 +14,6 @@ let options = {
     hideOnClick: true,
   },
 };
- 
+
 //上記オプションを使って初期化
 let mySwiper = new Swiper ('.swiper', options);

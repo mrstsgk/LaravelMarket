@@ -35,10 +35,10 @@ class CouponService
         return $couponName;
     }
 
-    public function getCoupon($userID){
+    public function getCoupon($id){
 
         // ユーザーが所持するクーポンをCouponテーブルで検索
-        $coupon= $this->couponRepository->getCoupon($userID);
+        $coupon= $this->couponRepository->getCoupon($id);
         
         // なし
         if (count($coupon) === 0){

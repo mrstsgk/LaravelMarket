@@ -5,6 +5,7 @@ use App\Http\Controllers\ItemListController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,9 @@ Route::get('/mypage', [MyPageController::class, 'show']);
 // 新規登録
 Route::get('/signup', [SignUpController::class, 'show']);
 Route::POST('/signup', [SignUpController::class, 'signUp']);
+
+// いいねボタン
+Route::get('/reply/like/{item}', [LikeController::class, 'like'])->name('like');
+Route::get('/reply/unlike/{item}', [LikeController::class , 'unlike'])->name('unlike');
+
+Route::post('/ajaxlike', [LikeController::class, 'ajaxlike'])->name('posts.ajaxlike');

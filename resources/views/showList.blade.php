@@ -48,24 +48,15 @@
                     <p>M：{{ $item->priceM }}</p>
                     <p>L：{{ $item->priceL }}</p>
                 </div>
-                @if (Auth::check())
-                    @if ($likes)
-                        <form action="{{action('LikesController@destroy',$item->id)}}" method="POST" class="mb-4" >
-                        <input type="hidden" name="item_id" value="{{$item->id}}">
-                        @csrf
-                        @method('DELETE')
-                            <button type="submit">
-                                ブックマーク解除
-                            </button>
-                        </form>
+                @if (!empty(Cookie::get('userId')))
+                    @if ($like_model->like_exist(Cookie::get('userId'), $item->id))
+                        <!-- 「いいね」取消用ボタンを表示 -->
+                        <a class="js-like-toggle loved" href="" data-postid="{{ $item->id }}"><i class="fas fa-heart"></i></a>
                     @else
-                        <form action="{{action('LikesController@store')}}" method="POST" class="mb-4" >
-                            @csrf
-                            <input type="hidden" name="item_id" value="{{$item->id}}">
-                            <button type="submit">
-                                ブックマーク
-                            </button>
-                        </form>
+                        <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                        <a class="js-like-toggle" href="" data-postid="{{ $item->id }}"><i class="fas fa-heart"></i></a>
+                            いいね
+                        </a>
                     @endif
                 @endif
             </div>

@@ -8,9 +8,7 @@ use App\Repositories\Models\User;
 use App\Http\Validator\UserValidator;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Cookie;
-use phpseclib3\Crypt\Random;
 
 class SignUpController extends Controller
 {
@@ -60,18 +58,8 @@ class SignUpController extends Controller
                     ->withInput();
         }
 
-        //user_idの生成
-        while (true) {
-            $id = substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
-            $user = $this->userService->getUserbyId($id);
-            // 使用されていないuser_idならbreak
-            if (count($user) <= 0) {
-                break;
-            }
-        }
-
         // 登録
-        $this->userService->insertUser($id, $request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
+        $id = $this->userService->insertUser($request->name, $request->email, $request->password, $request->zipcode, $request->address, $request->telephone);
 
         // cookie設定
         Cookie::queue('userId', $id, 60);

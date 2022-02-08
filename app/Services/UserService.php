@@ -31,8 +31,8 @@ class UserService
     }
 
     public function getUserbyId($id){
-        $userName = $this->userRepository->getUserbyId($id);
-        return $userName;
+        $user = $this->userRepository->getUserbyId($id);
+        return $user;
     }
 
     public function getUserbyEmail($email){
@@ -65,7 +65,8 @@ class UserService
         return array(false, 0);
     }
 
-    public function insertUser($id, $name, $email, $password, $zipcode, $address, $telephone){
-        $this->userRepository->insertUser($id, $name, $email, $password, $zipcode, $address, $telephone);
+    public function insertUser($name, $email, $password, $zipcode, $address, $telephone){
+        $id = $this->userRepository->insertUser($name, $email, $password, $zipcode, $address, $telephone);
+        return $id;
     }
 }

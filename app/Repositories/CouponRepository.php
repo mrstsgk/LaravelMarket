@@ -16,8 +16,8 @@ class CouponRepository
         return $coupons;
     }
 
-    public function getCoupon($userId){
-        $coupons = Coupon::where('user_id', $userId)->get();
+    public function getCoupon($id){
+        $coupons = Coupon::where('id', $id)->get();
         return $coupons;
     }
 

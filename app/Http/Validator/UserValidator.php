@@ -9,7 +9,6 @@ class UserValidator extends Validator
 {
     public function createValidation(Request $request): \Illuminate\Contracts\Validation\Validator
     {
-        $regex_pwd = '#^(?=.*[A-Z])(?=.*[_@`])[a-zA-Z0-9.?\/-]$#';
         $params = $request->all();
         return Validator::make($params, [// <- バリデーターインスタンスを返す
             'name' => [

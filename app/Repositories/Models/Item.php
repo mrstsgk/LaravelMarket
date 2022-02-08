@@ -28,7 +28,7 @@ class Item extends Model
 
     public function likes()
     {
-        return $this->hasMany('App\Repositories\Models\Like');
+        return $this->hasMany(Like::class);
     }
 
     protected $guarded = ['id'];

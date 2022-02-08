@@ -16,8 +16,6 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $primaryKey = 'id';
-    public $incrementing = false; 
-    protected $keyType = 'string';
 
     /**
      * The attributes that are mass assignable.
@@ -38,7 +36,7 @@ class User extends Authenticatable
 
     public function likes()
     {
-        return $this->hasMany('App\Repositories\Models\Like');
+        return $this->hasMany(Like::class);
     }
 
     protected $guarded = ['id'];

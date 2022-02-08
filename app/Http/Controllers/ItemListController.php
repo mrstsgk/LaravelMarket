@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Services\ItemService;
 use Attribute;
+use App\Services\LikeService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cookie;
@@ -21,10 +22,11 @@ class ItemListController extends Controller
      * @param  mixed $itemService
      * @return void
      */
-    public function __construct(ItemService $itemService, UserService $userService)
+    public function __construct(ItemService $itemService, UserService $userService, LikeService $likeService)
     {
         $this->itemService = $itemService;
         $this->userService = $userService;
+        $this->likeServise = $likeService;
     }
     
     /**
@@ -41,7 +43,8 @@ class ItemListController extends Controller
         } else {
             $userName = 'ゲスト';
         }
-        return view('showList', ['itemList' => $itemList, 'userName' => $userName]);
+        $like_model = $this->likeServise->newLike();
+        return view('showList', ['itemList' => $itemList, 'userName' => $userName, 'like_model'=>$like_model]);
     }
 
     
